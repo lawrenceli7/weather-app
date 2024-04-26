@@ -16,7 +16,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ weather }) => {
             <h2>{weather.datetime}</h2>
             <p>{weather.conditions}</p>
             <p>{weather.description}</p>
-            <p>{weather.tempmin} - {weather.tempmax}</p>
+            <p>{weather.tempmin}° - {weather.tempmax}°</p>
         </div>
     );
 }
