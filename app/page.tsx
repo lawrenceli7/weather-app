@@ -3,6 +3,8 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Card, Divider, Input } from "antd";
 import Link from "next/link";
 import { SyntheticEvent, useState } from "react";
+import { FaCity } from "react-icons/fa";
+import { TiWeatherPartlySunny } from "react-icons/ti";
 
 export default function Home() {
   const [city, setCity] = useState("");
@@ -12,13 +14,19 @@ export default function Home() {
   };
 
   return (
-    <main className="h-screen flex justify-center items-center bg-blue-100">
+    <main className="h-screen flex justify-center items-center bg-[#c1defd]">
       <div className="flex justify-center items-center h-full">
-        <Card className="w-full h-7/24 border border-black shadow-lg">
-          <h1 className="text-2xl text-center">Find the weather in any city!</h1>
+        <Card className="w-full h-7/24 border border-black shadow-lg p-10">
+          <div className="flex items-center justify-center gap-2">
+            <h1 className="text-2xl text-center">Find the weather</h1>
+            <TiWeatherPartlySunny size={25} />
+          </div>
           <Divider />
           <div>
-            <p className="text-lg text-center">Enter a city name below to get the current weather.</p>
+            <div className="flex items-center justify-center">
+              <p className="text-lg">Enter a city</p>
+              <FaCity className="ml-2" />
+            </div>
             <Input
               className="w-full mt-4"
               placeholder="City name"

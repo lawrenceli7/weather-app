@@ -1,7 +1,9 @@
 "use client"
-import WeatherCard from "@/components/WeatherCard";
-import { useParams } from "next/navigation";
-import useSWR from "swr";
+import WeatherCard from '@/components/WeatherCard';
+import { Divider } from 'antd';
+import { useParams } from 'next/navigation';
+import React from 'react';
+import useSWR from 'swr';
 
 interface WeatherData {
     datetime: string;
@@ -13,7 +15,10 @@ interface WeatherData {
 
 const CityPage = () => {
     const params = useParams<{ city: string }>();
-    const { data: response, error } = useSWR<{ days: WeatherData[] }>(`/api/getWeatherData?city=${params.city}`, (url: string) => fetch(url).then((response) => response.json()));
+    const { data: response, error } = useSWR<{ days: WeatherData[] }>(
+        `/api/getWeatherData?city=${params.city}`,
+        (url: string) => fetch(url).then((response) => response.json())
+    );
 
     if (error) return <div>failed to load</div>;
     if (!response) return <div>loading..</div>;
@@ -21,9 +26,10 @@ const CityPage = () => {
     const days = response.days;
 
     return (
-        <main className="bg-white m-2 p-2 text-center text-[#333] h-screen">
+        <main className="bg-[#c1defd] m-2 p-2 text-center text-[#333] h-screen rounded-md">
             <h1 className="text-center m-2 text-4xl font-semibold text-[#333]">{params.city}</h1>
-            <div className="flex flex-wrap justify-center gap-2 p-2 m-2 bg-[#f0f0f0] shadow-lg border border-black rounded-md">
+            <Divider />
+            <div className="flex flex-wrap justify-center gap-2 p-2 m-2 shadow-lg rounded-md">
                 {days.map((weather, i) => (
                     <WeatherCard key={i} weather={weather} />
                 ))}
