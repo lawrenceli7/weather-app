@@ -1,9 +1,10 @@
-## Weather App
+# Weather App
 
 ## Technologies Used
 - Next.js
 - TypeScript
 - Tailwind CSS
+- Ant Design
 
 ## API Used
 - Visual Crossing Weather
