@@ -20,8 +20,8 @@ const CityPage = () => {
         (url: string) => fetch(url).then((response) => response.json())
     );
 
-    if (error) return <div>failed to load</div>;
-    if (!response) return <div>loading..</div>;
+    if (error) return <div className="text-center text-lg mt-40">Failed to load</div>;
+    if (!response) return <div className="text-center text-lg mt-40">Loading..</div>;
 
     const days = response.days;
 
